@@ -3,9 +3,8 @@ import { persist } from 'zustand/middleware'
 import type { User, LoginCredentials, Permission } from '../types/firestore'
 import { findDemoCredential } from '../config/demoCredentials'
 import { getRolePermissions } from '../lib/accessControl'
-import { ensureFirebaseAuth, registerRtdbUserProfile } from '../lib/rtdb/auth'
 import { isFirebaseConfigured } from '../lib/rtdb/repository'
-import { getFirebaseAuth } from '../lib/firebase'
+import { signInFirebaseDemoUser, signOutFirebase } from '../lib/rtdb/auth'
 
 interface AuthStore {
   user: User | null
@@ -31,7 +30,7 @@ export const useAuthStore = create<AuthStore>()(
       login: async (credentials) => {
         set({ isLoading: true, error: null })
         try {
-          await new Promise((r) => setTimeout(r, 600))
+          await new Promise((r) => setTimeout(r, 400))
           if (!credentials.email || !credentials.password) {
             throw new Error('Email and password are required')
           }
@@ -40,21 +39,14 @@ export const useAuthStore = create<AuthStore>()(
             throw new Error('Invalid email or password. Open Demo logins for default credentials.')
           }
           const role = demo.role
+          let userId = `mock-${role}`
+
           if (isFirebaseConfigured) {
-            try {
-              await ensureFirebaseAuth()
-              const uid = getFirebaseAuth().currentUser?.uid
-              if (uid) {
-                await registerRtdbUserProfile(uid, {
-                  email: demo.email,
-                  displayName: demo.label,
-                  role,
-                })
-              }
-            } catch { /* local-only fallback */ }
+            userId = await signInFirebaseDemoUser(demo.email, credentials.password)
           }
+
           const user: User = {
-            id: 'mock-' + role,
+            id: userId,
             email: demo.email,
             name: demo.label,
             role,
@@ -62,7 +54,7 @@ export const useAuthStore = create<AuthStore>()(
           }
           set({
             user,
-            token: 'mock-jwt-token',
+            token: isFirebaseConfigured ? `firebase-${userId}` : 'mock-jwt-token',
             isAuthenticated: true,
             isLoading: false,
           })
@@ -75,7 +67,12 @@ export const useAuthStore = create<AuthStore>()(
         }
       },
 
-      logout: () => set({ user: null, token: null, isAuthenticated: false, error: null }),
+      logout: () => {
+        if (isFirebaseConfigured) {
+          signOutFirebase().catch(console.warn)
+        }
+        set({ user: null, token: null, isAuthenticated: false, error: null })
+      },
 
       clearError: () => set({ error: null }),
 

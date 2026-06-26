@@ -2,13 +2,11 @@ import { useEffect } from 'react'
 import { useAuthStore } from '../stores/authStore'
 import { useConnectionStore } from '../stores/connectionStore'
 import { getFirebaseAuth } from '../lib/firebase'
-import { ensureFirebaseAuth, registerRtdbUserProfile } from '../lib/rtdb/auth'
 import { hydrateFromRealtimeDb } from '../lib/rtdb/sync'
 import { isFirebaseConfigured } from '../lib/rtdb/repository'
 
 export function useRealtimeSync() {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
-  const user = useAuthStore((s) => s.user)
   const setConnection = useConnectionStore((s) => s.setConnection)
 
   useEffect(() => {
@@ -22,20 +20,16 @@ export function useRealtimeSync() {
       return
     }
 
+    if (!getFirebaseAuth().currentUser) {
+      setConnection('rtdb_error', 'Firebase session expired — sign in again')
+      return
+    }
+
     let cancelled = false
     setConnection('rtdb_connecting')
 
     ;(async () => {
       try {
-        await ensureFirebaseAuth()
-        const uid = getFirebaseAuth().currentUser?.uid
-        if (uid && user) {
-          await registerRtdbUserProfile(uid, {
-            email: user.email,
-            displayName: user.name,
-            role: user.role,
-          })
-        }
         const ok = await hydrateFromRealtimeDb()
         if (!cancelled) {
           setConnection(ok ? 'rtdb_synced' : 'rtdb_error', ok ? null : 'Hydration returned false')
@@ -48,7 +42,7 @@ export function useRealtimeSync() {
     })()
 
     return () => { cancelled = true }
-  }, [isAuthenticated, user, setConnection])
+  }, [isAuthenticated, setConnection])
 
   return useConnectionStore()
 }

@@ -11,6 +11,7 @@
     "install:all": "npm install --prefix frontend --strict-ssl=false && npm install --prefix backend --strict-ssl=false",
     "seed:firebase": "npm run seed:firebase --prefix scripts",
     "seed:firestore": "npm run seed:firestore --prefix scripts",
+    "create:auth-users": "npm run create:auth-users --prefix scripts",
     "seed:local": "npm run seed:local --prefix scripts",
     "deploy:rules": "npm run deploy:rules --prefix scripts"
   }

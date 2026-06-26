@@ -1,50 +1,29 @@
-import { signInAnonymously } from 'firebase/auth'
-import { ref, set } from 'firebase/database'
-import type { UserRole } from '../../types/firestore'
-import { getRolePermissions } from '../accessControl'
-import { getFirebaseAuth, getRealtimeDb } from '../firebase'
-
-let authPromise: Promise<void> | null = null
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { getFirebaseAuth } from '../firebase'
 
 function authHelpMessage(err: unknown): string {
   const code = typeof err === 'object' && err && 'code' in err ? String((err as { code: string }).code) : ''
-  if (code === 'auth/operation-not-allowed' || code === 'auth/admin-restricted-operation') {
-    return 'Enable Anonymous sign-in in Firebase Console → Authentication → Sign-in method'
+  if (code === 'auth/operation-not-allowed') {
+    return 'Enable Email/Password sign-in in Firebase Console → Authentication → Sign-in method'
+  }
+  if (code === 'auth/user-not-found' || code === 'auth/invalid-credential') {
+    return 'Firebase Auth user missing. Run: npm run create:auth-users'
   }
   if (code === 'auth/invalid-api-key') {
     return 'Invalid VITE_FIREBASE_API_KEY in frontend/.env'
   }
-  return err instanceof Error ? err.message : 'Firebase anonymous sign-in failed'
+  return err instanceof Error ? err.message : 'Firebase sign-in failed'
 }
 
-export async function ensureFirebaseAuth(): Promise<void> {
+/** Sign in with demo email/password — Firebase uid matches RTDB seed users (seed-admin, etc.). */
+export async function signInFirebaseDemoUser(email: string, password: string): Promise<string> {
   const auth = getFirebaseAuth()
-  if (auth.currentUser) return
-  if (!authPromise) {
-    authPromise = signInAnonymously(auth)
-      .then(() => undefined)
-      .catch((err) => {
-        authPromise = null
-        throw new Error(authHelpMessage(err))
-      })
-  }
-  await authPromise
+  const cred = await signInWithEmailAndPassword(auth, email.trim(), password).catch((err) => {
+    throw new Error(authHelpMessage(err))
+  })
+  return cred.user.uid
 }
 
-/** Register demo role at users/{auth.uid} so RTDB security rules allow reads/writes. */
-export async function registerRtdbUserProfile(
-  uid: string,
-  profile: { email: string; displayName: string; role: UserRole },
-) {
-  const now = new Date().toISOString()
-  await set(ref(getRealtimeDb(), `users/${uid}`), {
-    uid,
-    email: profile.email,
-    displayName: profile.displayName,
-    role: profile.role,
-    permissions: getRolePermissions(profile.role),
-    active: true,
-    createdAt: now,
-    updatedAt: now,
-  })
+export async function signOutFirebase() {
+  await signOut(getFirebaseAuth())
 }

@@ -5,6 +5,7 @@
   "scripts": {
     "seed:firebase": "node firebase/seed-schema.mjs",
     "seed:firestore": "node firebase/seed-firestore.mjs",
+    "create:auth-users": "node firebase/create-auth-users.mjs",
     "seed:local": "node firebase/export-dataset.mjs",
     "deploy:rules": "node firebase/deploy-rules.mjs"
   },
