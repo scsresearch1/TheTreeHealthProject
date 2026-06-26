@@ -3,8 +3,9 @@ import { persist } from 'zustand/middleware'
 import type { User, LoginCredentials, Permission } from '../types/firestore'
 import { findDemoCredential } from '../config/demoCredentials'
 import { getRolePermissions } from '../lib/accessControl'
-import { ensureFirebaseAuth } from '../lib/firestore/auth'
-import { isFirestoreConfigured } from '../lib/firestore/repository'
+import { ensureFirebaseAuth, registerRtdbUserProfile } from '../lib/rtdb/auth'
+import { isFirebaseConfigured } from '../lib/rtdb/repository'
+import { getFirebaseAuth } from '../lib/firebase'
 
 interface AuthStore {
   user: User | null
@@ -39,8 +40,18 @@ export const useAuthStore = create<AuthStore>()(
             throw new Error('Invalid email or password. Open Demo logins for default credentials.')
           }
           const role = demo.role
-          if (isFirestoreConfigured) {
-            try { await ensureFirebaseAuth() } catch { /* local-only fallback */ }
+          if (isFirebaseConfigured) {
+            try {
+              await ensureFirebaseAuth()
+              const uid = getFirebaseAuth().currentUser?.uid
+              if (uid) {
+                await registerRtdbUserProfile(uid, {
+                  email: demo.email,
+                  displayName: demo.label,
+                  role,
+                })
+              }
+            } catch { /* local-only fallback */ }
           }
           const user: User = {
             id: 'mock-' + role,

@@ -7,9 +7,9 @@ import { useConnectionStore } from '../../stores/connectionStore'
 
 const CONNECTION_LABELS = {
   local: { text: 'Local storage only', className: 'bg-amber-100 text-amber-800' },
-  firestore_connecting: { text: 'Connecting to Firestore…', className: 'bg-sky-100 text-sky-800' },
-  firestore_synced: { text: 'Firestore synced', className: 'bg-emerald-100 text-emerald-800' },
-  firestore_error: { text: 'Firestore error', className: 'bg-signal-red/10 text-signal-red' },
+  rtdb_connecting: { text: 'Connecting to Realtime DB…', className: 'bg-sky-100 text-sky-800' },
+  rtdb_synced: { text: 'Realtime DB synced', className: 'bg-emerald-100 text-emerald-800' },
+  rtdb_error: { text: 'Realtime DB error', className: 'bg-signal-red/10 text-signal-red' },
 } as const
 
 export default function TopBar() {

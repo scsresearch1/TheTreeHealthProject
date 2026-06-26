@@ -5,7 +5,7 @@ import type { Permission, UserRole } from '../types/firestore'
 import { generateReportApi } from '../lib/api/reports'
 import {
   syncTree, syncTreeDelete, syncSoilReading, syncAlert, syncMaintenanceTask, syncReport,
-} from '../lib/firestore/sync'
+} from '../lib/rtdb/sync'
 
 export interface Tree {
   treeId: string

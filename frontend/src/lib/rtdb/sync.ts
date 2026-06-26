@@ -1,20 +1,16 @@
 import { COLLECTIONS } from '../../types/firestore'
 import { useDataStore } from '../../stores/dataStore'
 import type { Tree, Zone, SoilReading, Alert, MaintenanceTask, Report } from '../../stores/dataStore'
-import { batchUpsert, fetchCollection, isFirestoreConfigured, upsertDocument, deleteDocument } from './repository'
+import { batchUpsert, fetchCollection, isFirebaseConfigured, upsertDocument, deleteDocument } from './repository'
 
-const TREE_COLLECTION = COLLECTIONS.trees
+const TREES_PATH = COLLECTIONS.trees
 
-function docId(item: { id?: string; treeId?: string; uid?: string }, fallback?: string) {
-  return item.id ?? item.treeId ?? item.uid ?? fallback ?? ''
-}
-
-export async function hydrateFromFirestore(): Promise<boolean> {
-  if (!isFirestoreConfigured) return false
+export async function hydrateFromRealtimeDb(): Promise<boolean> {
+  if (!isFirebaseConfigured) return false
 
   try {
     const [trees, zones, soil, alerts, tasks, reports] = await Promise.all([
-      fetchCollection<Tree>(TREE_COLLECTION),
+      fetchCollection<Tree>(TREES_PATH),
       fetchCollection<Zone>(COLLECTIONS.zones),
       fetchCollection<SoilReading>(COLLECTIONS.soil_readings),
       fetchCollection<Alert>(COLLECTIONS.alerts),
@@ -23,7 +19,7 @@ export async function hydrateFromFirestore(): Promise<boolean> {
     ])
 
     if (trees.length === 0) {
-      await pushLocalStateToFirestore()
+      await pushLocalStateToRealtimeDb()
       return true
     }
 
@@ -38,18 +34,18 @@ export async function hydrateFromFirestore(): Promise<boolean> {
     })
     return true
   } catch (err) {
-    console.warn('[Firestore] hydrate failed — using local data', err)
+    console.warn('[RTDB] hydrate failed — using local data', err)
     return false
   }
 }
 
-export async function pushLocalStateToFirestore() {
-  if (!isFirestoreConfigured) return
+export async function pushLocalStateToRealtimeDb() {
+  if (!isFirebaseConfigured) return
 
   const s = useDataStore.getState()
   await Promise.all([
     batchUpsert(COLLECTIONS.zones, s.zones.map((z) => ({ id: z.id, data: z as unknown as Record<string, unknown> }))),
-    batchUpsert(TREE_COLLECTION, s.trees.map((t) => ({ id: t.treeId, data: t as unknown as Record<string, unknown> }))),
+    batchUpsert(TREES_PATH, s.trees.map((t) => ({ id: t.treeId, data: t as unknown as Record<string, unknown> }))),
     batchUpsert(COLLECTIONS.soil_readings, s.soil_readings.map((r) => ({ id: r.id, data: r as unknown as Record<string, unknown> }))),
     batchUpsert(COLLECTIONS.alerts, s.alerts.map((a) => ({ id: a.id, data: a as unknown as Record<string, unknown> }))),
     batchUpsert(COLLECTIONS.maintenance_tasks, s.maintenance_tasks.map((t) => ({ id: t.id, data: t as unknown as Record<string, unknown> }))),
@@ -58,38 +54,34 @@ export async function pushLocalStateToFirestore() {
 }
 
 export function syncTree(tree: Tree) {
-  if (!isFirestoreConfigured) return
-  upsertDocument(TREE_COLLECTION, tree.treeId, tree as unknown as Record<string, unknown>).catch(console.warn)
+  if (!isFirebaseConfigured) return
+  upsertDocument(TREES_PATH, tree.treeId, tree as unknown as Record<string, unknown>).catch(console.warn)
 }
 
 export function syncTreeDelete(treeId: string) {
-  if (!isFirestoreConfigured) return
-  deleteDocument(TREE_COLLECTION, treeId).catch(console.warn)
+  if (!isFirebaseConfigured) return
+  deleteDocument(TREES_PATH, treeId).catch(console.warn)
 }
 
 export function syncSoilReading(reading: SoilReading) {
-  if (!isFirestoreConfigured) return
+  if (!isFirebaseConfigured) return
   upsertDocument(COLLECTIONS.soil_readings, reading.id, reading as unknown as Record<string, unknown>).catch(console.warn)
 }
 
 export function syncAlert(alert: Alert) {
-  if (!isFirestoreConfigured) return
+  if (!isFirebaseConfigured) return
   upsertDocument(COLLECTIONS.alerts, alert.id, alert as unknown as Record<string, unknown>).catch(console.warn)
 }
 
 export function syncMaintenanceTask(task: MaintenanceTask) {
-  if (!isFirestoreConfigured) return
+  if (!isFirebaseConfigured) return
   upsertDocument(COLLECTIONS.maintenance_tasks, task.id, task as unknown as Record<string, unknown>).catch(console.warn)
 }
 
 export function syncReport(report: Report) {
-  if (!isFirestoreConfigured) return
+  if (!isFirebaseConfigured) return
   upsertDocument(COLLECTIONS.reports, report.id, report as unknown as Record<string, unknown>).catch(console.warn)
 }
 
-export function syncGeneric(collection: string, item: { id?: string; treeId?: string }) {
-  if (!isFirestoreConfigured) return
-  const id = docId(item)
-  if (!id) return
-  upsertDocument(collection, id, item as unknown as Record<string, unknown>).catch(console.warn)
-}
+/** @deprecated use hydrateFromRealtimeDb */
+export const hydrateFromFirestore = hydrateFromRealtimeDb

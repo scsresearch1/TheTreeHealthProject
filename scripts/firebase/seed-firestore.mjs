@@ -2,6 +2,8 @@
  * Seeds Cloud Firestore from dataset.mjs using the admin service account.
  * Usage: cd scripts && npm install --strict-ssl=false && npm run seed:firestore
  */
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 import { readFileSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'

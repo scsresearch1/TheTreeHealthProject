@@ -2,9 +2,9 @@ import { create } from 'zustand'
 
 export type DataConnectionMode =
   | 'local'
-  | 'firestore_connecting'
-  | 'firestore_synced'
-  | 'firestore_error'
+  | 'rtdb_connecting'
+  | 'rtdb_synced'
+  | 'rtdb_error'
 
 interface ConnectionStore {
   mode: DataConnectionMode

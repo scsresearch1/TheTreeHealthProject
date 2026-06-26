@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import TopBar from './TopBar'
-import { useFirestoreSync } from '../../hooks/useFirestoreSync'
+import { useRealtimeSync } from '../../hooks/useRealtimeSync'
 
 export default function AppShell() {
-  useFirestoreSync()
+  useRealtimeSync()
 
   return (
     <div className="flex flex-1 min-h-0 overflow-hidden bg-parchment-100/50">
