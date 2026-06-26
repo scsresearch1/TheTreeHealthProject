@@ -1,35 +1,44 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useAuthStore } from '../stores/authStore'
+import { useConnectionStore } from '../stores/connectionStore'
 import { hydrateFromFirestore } from '../lib/firestore/sync'
 import { isFirestoreConfigured } from '../lib/firestore/repository'
 import { ensureFirebaseAuth } from '../lib/firestore/auth'
 
 export function useFirestoreSync() {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
-  const [synced, setSynced] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const setConnection = useConnectionStore((s) => s.setConnection)
 
   useEffect(() => {
-    if (!isAuthenticated || !isFirestoreConfigured) return
+    if (!isAuthenticated) {
+      setConnection('local')
+      return
+    }
+
+    if (!isFirestoreConfigured) {
+      setConnection('local')
+      return
+    }
 
     let cancelled = false
+    setConnection('firestore_connecting')
+
     ;(async () => {
       try {
         await ensureFirebaseAuth()
         const ok = await hydrateFromFirestore()
         if (!cancelled) {
-          setSynced(ok)
-          setError(null)
+          setConnection(ok ? 'firestore_synced' : 'firestore_error', ok ? null : 'Hydration returned false')
         }
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : 'Firestore sync failed')
+          setConnection('firestore_error', err instanceof Error ? err.message : 'Firestore sync failed')
         }
       }
     })()
 
     return () => { cancelled = true }
-  }, [isAuthenticated])
+  }, [isAuthenticated, setConnection])
 
-  return { synced, error, enabled: isFirestoreConfigured }
+  return useConnectionStore()
 }

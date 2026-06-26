@@ -3,11 +3,21 @@ import Button from '../Button'
 import { IconBell } from '../icons'
 import { useDataStore } from '../../stores/dataStore'
 import { useAccessControl } from '../../hooks/useAccessControl'
+import { useConnectionStore } from '../../stores/connectionStore'
+
+const CONNECTION_LABELS = {
+  local: { text: 'Local storage only', className: 'bg-amber-100 text-amber-800' },
+  firestore_connecting: { text: 'Connecting to Firestore…', className: 'bg-sky-100 text-sky-800' },
+  firestore_synced: { text: 'Firestore synced', className: 'bg-emerald-100 text-emerald-800' },
+  firestore_error: { text: 'Firestore error', className: 'bg-signal-red/10 text-signal-red' },
+} as const
 
 export default function TopBar() {
   const { user, logout } = useAuthStore()
   const alerts = useDataStore((s) => s.alerts)
   const { accessibleModules, canViewWidget } = useAccessControl()
+  const { mode: connectionMode, error: connectionError } = useConnectionStore()
+  const connection = CONNECTION_LABELS[connectionMode]
   const criticalCount = alerts.filter((a) => a.severity === 'critical').length
   const showAlerts = canViewWidget('alerts')
 
@@ -17,6 +27,13 @@ export default function TopBar() {
         <h1 className="text-sm font-semibold text-ink-900">Operations</h1>
         <p className="text-[10px] text-ink-500">
           {accessibleModules.length} modules · <span className="capitalize">{user?.role?.replace(/_/g, ' ')}</span>
+          {' · '}
+          <span
+            className={`rounded px-1 py-0.5 font-medium ${connection.className}`}
+            title={connectionError ?? connection.text}
+          >
+            {connection.text}
+          </span>
         </p>
       </div>
 
