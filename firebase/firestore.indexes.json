@@ -1,0 +1,45 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "trees",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "zoneId", "order": "ASCENDING" },
+        { "fieldPath": "healthStatus", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "trees",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "speciesId", "order": "ASCENDING" },
+        { "fieldPath": "riskLevel", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "maintenance_tasks",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "alerts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "severity", "order": "DESCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "soil_readings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "zoneId", "order": "ASCENDING" },
+        { "fieldPath": "recordedAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

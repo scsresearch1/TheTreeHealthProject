@@ -1,0 +1,120 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "_schema": {
+      ".read": "auth != null",
+      ".write": false
+    },
+
+    "config": {
+      ".read": "auth != null",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
+    },
+
+    "users": {
+      "$uid": {
+        ".read": "auth != null && ($uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'admin')",
+        ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
+      }
+    },
+
+    "zones": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
+    },
+
+    "trees": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$treeId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'field_team')",
+        ".validate": "newData.hasChildren(['treeId', 'speciesId', 'healthStatus', 'zoneId'])"
+      }
+    },
+
+    "soil_readings": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$readingId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'field_team')"
+      }
+    },
+
+    "images": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$imageId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'field_team' || root.child('users').child(auth.uid).child('role').val() === 'management')"
+      }
+    },
+
+    "disease_records": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$recordId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'field_team')"
+      }
+    },
+
+    "pest_records": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$recordId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'field_team')"
+      }
+    },
+
+    "growth_records": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$recordId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'field_team')"
+      }
+    },
+
+    "recommendations": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$recId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'management' || root.child('users').child(auth.uid).child('role').val() === 'field_team')"
+      }
+    },
+
+    "maintenance_tasks": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$taskId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'field_team')"
+      }
+    },
+
+    "alerts": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('active').val() !== false",
+      "$alertId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'management' || root.child('users').child(auth.uid).child('role').val() === 'field_team')"
+      }
+    },
+
+    "notifications": {
+      "$notificationId": {
+        ".read": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || data.child('userId').val() === auth.uid)",
+        ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
+      }
+    },
+
+    "activity_logs": {
+      ".read": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'management')",
+      "$logId": {
+        ".write": "auth != null"
+      }
+    },
+
+    "audit_trail": {
+      ".read": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'management')",
+      "$entryId": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
+      }
+    },
+
+    "reports": {
+      ".read": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'management' || root.child('users').child(auth.uid).child('role').val() === 'field_team')",
+      "$reportId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'admin' || root.child('users').child(auth.uid).child('role').val() === 'management')"
+      }
+    }
+  }
+}

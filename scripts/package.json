@@ -1,0 +1,13 @@
+{
+  "name": "tree-health-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed:firebase": "node firebase/seed-schema.mjs",
+    "seed:local": "node firebase/export-dataset.mjs",
+    "deploy:rules": "node firebase/deploy-rules.mjs"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.4.0"
+  }
+}

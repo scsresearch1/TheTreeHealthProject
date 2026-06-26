@@ -1,0 +1,16 @@
+{
+  "name": "the-tree-health-project",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reach-based forest health monitoring platform",
+  "scripts": {
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run start:dev --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "build:backend": "npm run build --prefix backend",
+    "install:all": "npm install --prefix frontend --strict-ssl=false && npm install --prefix backend --strict-ssl=false",
+    "seed:firebase": "npm run seed:firebase --prefix scripts",
+    "seed:local": "npm run seed:local --prefix scripts",
+    "deploy:rules": "npm run deploy:rules --prefix scripts"
+  }
+}

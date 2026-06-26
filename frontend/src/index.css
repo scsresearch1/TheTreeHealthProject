@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/*
+ * Design system: scientific GIS / field research
+ * - ink:      deep blue-slate (cartography, instrumentation)
+ * - parchment: warm stone neutrals (surfaces, field notes)
+ * - copper:   brand accent (organic, mineral — not cliché green)
+ * - cerulean: data-positive / GIS layer accent
+ */
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-ink-950: #0a0e14;
+  --color-ink-900: #121a24;
+  --color-ink-800: #1a2634;
+  --color-ink-700: #243344;
+  --color-ink-600: #33475c;
+  --color-ink-500: #4a6178;
+  --color-ink-400: #6b8296;
+  --color-ink-300: #9aadb8;
+  --color-ink-200: #c8d4dc;
+  --color-ink-100: #e4eaee;
+  --color-ink-50: #f2f5f7;
+
+  --color-parchment-900: #2a2620;
+  --color-parchment-800: #3d3830;
+  --color-parchment-700: #5c5549;
+  --color-parchment-600: #7a7164;
+  --color-parchment-500: #9a9082;
+  --color-parchment-400: #b8afa2;
+  --color-parchment-300: #d4cdc3;
+  --color-parchment-200: #e8e3db;
+  --color-parchment-100: #f4f1ec;
+  --color-parchment-50: #faf8f5;
+
+  --color-copper-600: #8f5528;
+  --color-copper-500: #a8652f;
+  --color-copper-400: #c4824a;
+  --color-copper-300: #dba66e;
+  --color-copper-200: #efd5b8;
+  --color-copper-100: #f8ecdf;
+  --color-copper-50: #fcf6f0;
+
+  --color-cerulean-600: #2a6480;
+  --color-cerulean-500: #3a85a8;
+  --color-cerulean-400: #5ba3c4;
+  --color-cerulean-300: #8ec4dc;
+  --color-cerulean-200: #c5e2ef;
+  --color-cerulean-100: #e4f2f8;
+
+  --color-signal-amber: #c4922a;
+  --color-signal-red: #b84a3a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-parchment-50 text-ink-900 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-copper-200 text-ink-900;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grid-scientific {
+    background-image:
+      linear-gradient(to right, rgb(26 38 52 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(26 38 52 / 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .gradient-hero {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgb(58 133 168 / 0.12), transparent),
+      radial-gradient(ellipse 50% 40% at 90% 20%, rgb(168 101 47 / 0.08), transparent),
+      linear-gradient(to bottom, var(--color-parchment-50), var(--color-ink-50));
+  }
+
+  .map-grid {
+    background-image:
+      linear-gradient(to right, rgb(58 133 168 / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(58 133 168 / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    right: -5%;
+    background: rgb(58 133 168 / 0.14);
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    bottom: 10%;
+    left: -10%;
+    background: rgb(168 101 47 / 0.1);
+  }
+
+  .orb-3 {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    left: 30%;
+    background: rgb(74 97 120 / 0.08);
+  }
+
+  .bento-card {
+    @apply rounded-2xl border border-ink-200/60 bg-white shadow-md ring-1 ring-ink-100/40 backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-ink-900/8;
+  }
+
+  .glass-nav {
+    @apply border-b border-ink-200/40 bg-parchment-50/75 backdrop-blur-xl;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/60 bg-white/80 shadow-xl shadow-ink-900/8 backdrop-blur-xl ring-1 ring-ink-100/50;
+  }
+
+  .hero-glow {
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgb(58 133 168 / 0.18), transparent),
+      radial-gradient(ellipse 40% 40% at 20% 60%, rgb(168 101 47 / 0.12), transparent);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out both;
+  }
+
+  .fade-in-delay-1 { animation-delay: 0.1s; }
+  .fade-in-delay-2 { animation-delay: 0.2s; }
+  .fade-in-delay-3 { animation-delay: 0.3s; }
+  .fade-in-delay-4 { animation-delay: 0.45s; }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

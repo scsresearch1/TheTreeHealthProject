@@ -1,0 +1,20 @@
+# Render Blueprint — NestJS API
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: tthp-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false
+      - key: ML_SERVICE_URL
+        sync: false
