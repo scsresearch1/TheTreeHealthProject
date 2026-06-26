@@ -79,7 +79,7 @@ See `.env.example` files in each service directory.
 1. Push this repo to GitHub.
 2. In [Render](https://render.com), create a **Blueprint** from `render.yaml`, or add a **Web Service** manually:
    - **Root directory:** `backend`
-   - **Build:** `npm install && npm run build`
+   - **Build:** `npm install --include=dev && npm run build`
    - **Start:** `npm run start:prod`
    - **Health check:** `/api/health`
 3. Set environment variables on Render:
