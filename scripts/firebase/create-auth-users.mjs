@@ -20,7 +20,7 @@ admin.initializeApp({
 })
 
 const DEMO_USERS = [
-  { uid: 'seed-admin', email: 'admin@tthp.local', password: 'admin123', displayName: 'System Admin' },
+  { uid: 'seed-admin', email: 'admin@tthp.local', password: 'admin123', displayName: 'Dr. Niladri Dey' },
   { uid: 'seed-management', email: 'manager@tthp.local', password: 'manager123', displayName: 'Ops Manager' },
   { uid: 'seed-field', email: 'field@tthp.local', password: 'field123', displayName: 'Field & Operations' },
 ]

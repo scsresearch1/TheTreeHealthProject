@@ -29,6 +29,17 @@ export async function deleteDocument(basePath: string, id: string) {
   await remove(ref(getRealtimeDb(), `${basePath}/${id}`))
 }
 
+export async function fetchUserProfile(uid: string) {
+  const snap = await get(ref(getRealtimeDb(), `users/${uid}`))
+  if (!snap.exists()) return null
+  return snap.val() as {
+    displayName?: string
+    email?: string
+    role?: string
+    active?: boolean
+  }
+}
+
 export async function batchUpsert(
   basePath: string,
   items: Array<{ id: string; data: Record<string, unknown> }>,

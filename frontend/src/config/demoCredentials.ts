@@ -8,7 +8,7 @@ export interface DemoCredential {
 }
 
 export const DEMO_CREDENTIALS: DemoCredential[] = [
-  { email: 'admin@tthp.local', password: 'admin123', role: 'admin', label: 'System Admin' },
+  { email: 'admin@tthp.local', password: 'admin123', role: 'admin', label: 'Dr. Niladri Dey' },
   { email: 'manager@tthp.local', password: 'manager123', role: 'management', label: 'Ops Manager' },
   { email: 'field@tthp.local', password: 'field123', role: 'field_team', label: 'Field & Operations' },
 ]

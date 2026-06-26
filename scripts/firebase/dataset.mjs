@@ -167,7 +167,7 @@ export function buildDataset(now = new Date().toISOString()) {
   ]
 
   const users = [
-    { uid: 'seed-admin', email: 'admin@tthp.local', displayName: 'System Admin', role: 'admin' },
+    { uid: 'seed-admin', email: 'admin@tthp.local', displayName: 'Dr. Niladri Dey', role: 'admin' },
     { uid: 'seed-management', email: 'manager@tthp.local', displayName: 'Ops Manager', role: 'management' },
     { uid: 'seed-field', email: 'field@tthp.local', displayName: 'Field & Operations', role: 'field_team' },
   ].map((u) => ({

@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware'
 import type { User, LoginCredentials, Permission } from '../types/firestore'
 import { findDemoCredential } from '../config/demoCredentials'
 import { getRolePermissions } from '../lib/accessControl'
-import { isFirebaseConfigured } from '../lib/rtdb/repository'
+import { fetchUserProfile, isFirebaseConfigured } from '../lib/rtdb/repository'
 import { signInFirebaseDemoUser, signOutFirebase } from '../lib/rtdb/auth'
 
 interface AuthStore {
@@ -40,15 +40,18 @@ export const useAuthStore = create<AuthStore>()(
           }
           const role = demo.role
           let userId = `mock-${role}`
+          let displayName = demo.label
 
           if (isFirebaseConfigured) {
             userId = await signInFirebaseDemoUser(demo.email, credentials.password)
+            const profile = await fetchUserProfile(userId)
+            if (profile?.displayName) displayName = profile.displayName
           }
 
           const user: User = {
             id: userId,
             email: demo.email,
-            name: demo.label,
+            name: displayName,
             role,
             permissions: getRolePermissions(role),
           }

@@ -1,7 +1,7 @@
 {
   "_schema": {
     "version": "1.0.0",
-    "updatedAt": "2026-06-26T06:11:07.096Z",
+    "updatedAt": "2026-06-26T09:10:19.447Z",
     "projectId": "tthp-ec0a9"
   },
   "zones": [
@@ -11,8 +11,8 @@
       "code": "A-1",
       "block": "North Sector",
       "reach": "Reach 12",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "id": "zone-b4",
@@ -20,8 +20,8 @@
       "code": "B-4",
       "block": "North Sector",
       "reach": "Reach 12",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "id": "zone-c2",
@@ -29,15 +29,15 @@
       "code": "C-2",
       "block": "East Sector",
       "reach": "Reach 12",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "users": [
     {
       "uid": "seed-admin",
       "email": "admin@tthp.local",
-      "displayName": "System Admin",
+      "displayName": "Dr. Niladri Dey",
       "role": "admin",
       "permissions": [
         "trees:read",
@@ -62,8 +62,8 @@
         "alerts:manage"
       ],
       "active": true,
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "uid": "seed-management",
@@ -82,8 +82,8 @@
         "alerts:manage"
       ],
       "active": true,
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "uid": "seed-field",
@@ -109,8 +109,8 @@
         "alerts:manage"
       ],
       "active": true,
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "trees": [
@@ -132,8 +132,8 @@
       "riskLevel": "low",
       "qrCode": "TH-4821",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-3102",
@@ -153,8 +153,8 @@
       "riskLevel": "high",
       "qrCode": "TH-3102",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-7744",
@@ -174,8 +174,8 @@
       "riskLevel": "medium",
       "qrCode": "TH-7744",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-1190",
@@ -195,8 +195,8 @@
       "riskLevel": "low",
       "qrCode": "TH-1190",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-9033",
@@ -216,8 +216,8 @@
       "riskLevel": "critical",
       "qrCode": "TH-9033",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-5510",
@@ -237,8 +237,8 @@
       "riskLevel": "medium",
       "qrCode": "TH-5510",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-2201",
@@ -258,8 +258,8 @@
       "riskLevel": "low",
       "qrCode": "TH-2201",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-6612",
@@ -279,8 +279,8 @@
       "riskLevel": "low",
       "qrCode": "TH-6612",
       "createdBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "soil_readings": [
@@ -299,7 +299,7 @@
       "healthScore": 85,
       "classification": "good",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     },
     {
@@ -317,7 +317,7 @@
       "healthScore": 42,
       "classification": "poor",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     },
     {
@@ -335,7 +335,7 @@
       "healthScore": 58,
       "classification": "moderate",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     },
     {
@@ -353,7 +353,7 @@
       "healthScore": 85,
       "classification": "good",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     },
     {
@@ -371,7 +371,7 @@
       "healthScore": 58,
       "classification": "moderate",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     },
     {
@@ -389,7 +389,7 @@
       "healthScore": 58,
       "classification": "moderate",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     },
     {
@@ -407,7 +407,7 @@
       "healthScore": 85,
       "classification": "good",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     },
     {
@@ -425,7 +425,7 @@
       "healthScore": 85,
       "classification": "good",
       "source": "manual",
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field"
     }
   ],
@@ -436,7 +436,7 @@
       "storagePath": "images/th-3102-bark.jpg",
       "imageType": "pest_damage",
       "category": "stem_trunk",
-      "capturedAt": "2026-06-26T06:11:07.096Z",
+      "capturedAt": "2026-06-26T09:10:19.447Z",
       "location": {
         "lat": 51.421,
         "lng": -0.376
@@ -444,7 +444,7 @@
       "uploadedBy": "seed-field",
       "inspectionNotes": "Bark galleries visible",
       "annotations": [],
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-9033",
@@ -452,7 +452,7 @@
       "storagePath": "images/th-9033-leaf.jpg",
       "imageType": "leaf_disease",
       "category": "leaf",
-      "capturedAt": "2026-06-26T06:11:07.096Z",
+      "capturedAt": "2026-06-26T09:10:19.447Z",
       "location": {
         "lat": 51.426,
         "lng": -0.385
@@ -460,7 +460,7 @@
       "uploadedBy": "seed-field",
       "inspectionNotes": "Leaf curling and yellowing",
       "annotations": [],
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-4821",
@@ -468,10 +468,10 @@
       "storagePath": "images/th-4821-full.jpg",
       "imageType": "full_tree",
       "category": "full_tree",
-      "capturedAt": "2026-06-26T06:11:07.096Z",
+      "capturedAt": "2026-06-26T09:10:19.447Z",
       "uploadedBy": "seed-field",
       "annotations": [],
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "disease_records": [
@@ -482,9 +482,9 @@
       "severity": "high",
       "confidence": 0.87,
       "verificationStatus": "ai_detected",
-      "detectedAt": "2026-06-26T06:11:07.096Z",
+      "detectedAt": "2026-06-26T09:10:19.447Z",
       "notes": "Canopy thinning",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-9033",
@@ -493,9 +493,9 @@
       "severity": "medium",
       "confidence": 0.76,
       "verificationStatus": "field_verified",
-      "detectedAt": "2026-06-26T06:11:07.096Z",
+      "detectedAt": "2026-06-26T09:10:19.447Z",
       "reviewedBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "pest_records": [
@@ -506,9 +506,9 @@
       "severity": "critical",
       "confidence": 0.94,
       "verificationStatus": "ai_detected",
-      "detectedAt": "2026-06-26T06:11:07.096Z",
+      "detectedAt": "2026-06-26T09:10:19.447Z",
       "notes": "D-shaped exit holes",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-9033",
@@ -517,8 +517,8 @@
       "severity": "medium",
       "confidence": 0.81,
       "verificationStatus": "ai_detected",
-      "detectedAt": "2026-06-26T06:11:07.096Z",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "detectedAt": "2026-06-26T09:10:19.447Z",
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "growth_records": [
@@ -529,9 +529,9 @@
       "trunkDiameter": 62,
       "growthRate": 0.15,
       "anomalyFlags": [],
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-7744",
@@ -542,9 +542,9 @@
       "anomalyFlags": [
         "slow_growth"
       ],
-      "recordedAt": "2026-06-26T06:11:07.096Z",
+      "recordedAt": "2026-06-26T09:10:19.447Z",
       "recordedBy": "seed-field",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "recommendations": [
@@ -563,7 +563,7 @@
       },
       "status": "active",
       "createdBy": "system",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-7744",
@@ -579,7 +579,7 @@
       },
       "status": "active",
       "createdBy": "system",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-9033",
@@ -595,7 +595,7 @@
       },
       "status": "active",
       "createdBy": "system",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "maintenance_tasks": [
@@ -606,12 +606,12 @@
       "title": "Apply systemic insecticide — EAB protocol",
       "assignedTo": "seed-field",
       "assignedBy": "seed-supervisor",
-      "dueDate": "2026-06-28T06:11:07.097Z",
+      "dueDate": "2026-06-28T09:10:19.448Z",
       "priority": "urgent",
       "status": "assigned",
       "proofImageUrls": [],
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-7744",
@@ -620,12 +620,12 @@
       "title": "Increase irrigation — Zone B-4",
       "assignedTo": "seed-field",
       "assignedBy": "seed-supervisor",
-      "dueDate": "2026-06-25T06:11:07.097Z",
+      "dueDate": "2026-06-25T09:10:19.448Z",
       "priority": "high",
       "status": "overdue",
       "proofImageUrls": [],
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-9033",
@@ -634,12 +634,12 @@
       "title": "Prune deadwood — crown reduction",
       "assignedTo": "seed-field",
       "assignedBy": "seed-supervisor",
-      "dueDate": "2026-06-26T06:11:07.097Z",
+      "dueDate": "2026-06-26T09:10:19.448Z",
       "priority": "high",
       "status": "in_progress",
       "proofImageUrls": [],
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "treeId": "TH-4821",
@@ -648,13 +648,13 @@
       "title": "Post-treatment re-inspection",
       "assignedTo": "seed-field",
       "assignedBy": "seed-supervisor",
-      "dueDate": "2026-07-03T06:11:07.097Z",
+      "dueDate": "2026-07-03T09:10:19.448Z",
       "priority": "low",
       "status": "completed",
       "proofImageUrls": [],
-      "completedAt": "2026-06-26T06:11:07.096Z",
-      "createdAt": "2026-06-26T06:11:07.096Z",
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "completedAt": "2026-06-26T09:10:19.447Z",
+      "createdAt": "2026-06-26T09:10:19.447Z",
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "alerts": [
@@ -666,7 +666,7 @@
       "treeId": "TH-3102",
       "zoneId": "zone-b4",
       "acknowledged": false,
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "type": "soil",
@@ -675,7 +675,7 @@
       "message": "Zone B-4 avg 20% — irrigation recommended",
       "zoneId": "zone-b4",
       "acknowledged": false,
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "type": "inspection",
@@ -684,7 +684,7 @@
       "message": "TH-5510 exceeds 30-day inspection window",
       "treeId": "TH-5510",
       "acknowledged": false,
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "type": "disease",
@@ -693,7 +693,7 @@
       "message": "Leaf spot on TH-9033 confirmed by field team",
       "treeId": "TH-9033",
       "acknowledged": true,
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "notifications": [
@@ -703,7 +703,7 @@
       "title": "Task overdue",
       "message": "Irrigation task for TH-7744 is overdue",
       "read": false,
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "userId": "seed-field",
@@ -711,7 +711,7 @@
       "title": "New pest alert",
       "message": "EAB detected on TH-3102",
       "read": false,
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     },
     {
       "userId": "seed-management",
@@ -719,7 +719,7 @@
       "title": "Weekly report ready",
       "message": "Q2 weekly summary available",
       "read": true,
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "activity_logs": [
@@ -728,14 +728,14 @@
       "action": "tree.create",
       "entityType": "tree",
       "entityId": "TH-4821",
-      "timestamp": "2026-06-26T06:11:07.096Z"
+      "timestamp": "2026-06-26T09:10:19.447Z"
     },
     {
       "userId": "seed-field",
       "action": "image.upload",
       "entityType": "image",
       "entityId": "th-3102-bark",
-      "timestamp": "2026-06-26T06:11:07.096Z"
+      "timestamp": "2026-06-26T09:10:19.447Z"
     }
   ],
   "audit_trail": [
@@ -747,7 +747,7 @@
       "field": "healthStatus",
       "oldValue": "healthy",
       "newValue": "moderate_risk",
-      "timestamp": "2026-06-26T06:11:07.096Z"
+      "timestamp": "2026-06-26T09:10:19.447Z"
     }
   ],
   "reports": [
@@ -760,7 +760,7 @@
       "format": "pdf",
       "status": "ready",
       "generatedBy": "seed-management",
-      "createdAt": "2026-06-26T06:11:07.096Z"
+      "createdAt": "2026-06-26T09:10:19.447Z"
     }
   ],
   "config": {
@@ -792,7 +792,7 @@
           "commonName": "European Beech"
         }
       ],
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "disease_categories": {
       "items": [
@@ -813,7 +813,7 @@
           "name": "Defoliation"
         }
       ],
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "pest_categories": {
       "items": [
@@ -830,7 +830,7 @@
           "name": "Scale Insects"
         }
       ],
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "soil_thresholds": {
       "moisture": {
@@ -846,7 +846,7 @@
       "electricalConductivity": {
         "max": 2
       },
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "recommendation_rules": {
       "rules": [
@@ -863,7 +863,7 @@
           "priority": "urgent"
         }
       ],
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "task_categories": {
       "items": [
@@ -884,7 +884,7 @@
         "verified",
         "rejected"
       ],
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "roles": {
       "roles": [
@@ -945,7 +945,7 @@
           "alerts:manage"
         ]
       },
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "module_access": {
       "items": [
@@ -1065,7 +1065,7 @@
           ]
         }
       ],
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "module_features": {
       "items": {
@@ -1384,7 +1384,7 @@
           }
         ]
       },
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     },
     "dashboard_widgets": {
       "items": [
@@ -1460,7 +1460,7 @@
           "allowedRoles": []
         }
       ],
-      "updatedAt": "2026-06-26T06:11:07.096Z"
+      "updatedAt": "2026-06-26T09:10:19.447Z"
     }
   }
 }
